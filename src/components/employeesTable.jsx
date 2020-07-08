@@ -1,49 +1,79 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class EmployeesTable extends Component {
-
-raiseSort = (path) => {
+  
+    raiseSort = (path) => {
     const sortColumn = { ...this.props.sortColumn };
-    if ( sortColumn.path === path )
-    sortColumn.order = (sortColumn.order === 'asc') ? 'desc' : 'asc';
+    if (sortColumn.path === path)
+      sortColumn.order = (sortColumn.order === "asc") ? "desc" : "asc";
     else {
-        sortColumn.path = path; 
-        sortColumn.order = 'asc';
+      sortColumn.path = path;
+      sortColumn.order = "asc";
     }
-    this.props.onSort (sortColumn);
-};
+    this.props.onSort(sortColumn);
+  };
 
-    render() { 
-        const { employees } = this.props;
-        return ( 
-            <table className="table">
-            <thead>
-              <tr>
-                <th onClick={ () => this.raiseSort ('image')}>Image</th>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>DOB</th>
-              </tr>
-            </thead>
-            <tbody>
-              {employees.map((employee) => (
-                <tr>
-                  <td>
-                    <img src={employee.image}/>
-                  </td>
-                  <td>
-                    {employee.name.first} {employee.name.last}
-                  </td>
-                  <td>{employee.phone}</td>
-                  <td>{employee.email}</td>
-                  <td>{employee.dob}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-         );
-    }
+  render() {
+    const { employees } = this.props;
+    return (
+      <table className="table">
+        <thead>
+          <tr>
+            <th onClick={() => this.raiseSort("image")}>
+              Image
+              <button
+                className="btn btn-light dropdown-toggle btn-sm m-2 text-danger"
+                type="button"
+              ></button>
+            </th>
+            <th onClick={() => this.raiseSort("name")}>
+              Name
+              <button
+                className="btn btn-light dropdown-toggle btn-sm m-2 text-danger"
+                type="button"
+              ></button>
+            </th>
+            <th onClick={() => this.raiseSort("phone")}>
+              Phone
+              <button
+                className="btn btn-light dropdown-toggle btn-sm m-2 text-danger"
+                type="button"
+              ></button>
+            </th>
+            <th onClick={() => this.raiseSort("email")}>
+              Email
+              <button
+                className="btn btn-light dropdown-toggle btn-sm m-2 text-danger"
+                type="button"
+              ></button>
+            </th>
+            <th onClick={() => this.raiseSort("dob")}>
+              DOB
+              <button
+                className="btn btn-light dropdown-toggle btn-sm m-2 text-danger"
+                type="button"
+              ></button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {employees.map((employee) => (
+            <tr key={employee._id}>
+              <td>
+                <img src={employee.image} />
+              </td>
+              <td>
+                {employee.name.first} {employee.name.last}
+              </td>
+              <td>{employee.phone}</td>
+              <td>{employee.email}</td>
+              <td>{employee.dob}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
+  }
 }
- 
+
 export default EmployeesTable;
