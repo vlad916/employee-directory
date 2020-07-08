@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import EmployeesTable from './employeesTable';
 import { getEmployees } from "./employeesAPI/API";
 
 class Employee extends Component {
@@ -8,38 +9,15 @@ class Employee extends Component {
 
   componentDidMount() {
     this.setState({ employees: getEmployees() });
-  }
+  };
 
   render() {
     const { employees } = this.state;
     return (
       <div>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Image</th>
-              <th>Name</th>
-              <th>Phone</th>
-              <th>Email</th>
-              <th>DOB</th>
-            </tr>
-          </thead>
-          <tbody>
-            {employees.map((employee) => (
-              <tr>
-                <td>
-                  <img src={employee.image}></img>
-                </td>
-                <td>
-                  {employee.name.first} {employee.name.last}
-                </td>
-                <td>{employee.phone}</td>
-                <td>{employee.email}</td>
-                <td>{employee.dob}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+       <EmployeesTable 
+       employees={employees}
+       />
       </div>
     );
   }
