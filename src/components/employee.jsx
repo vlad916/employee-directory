@@ -5,7 +5,7 @@ import { getEmployees } from "./employeesAPI/API";
 class Employee extends Component {
   state = {
     employees: [],
-    sortColumn: { path: 'Name', order: 'asc' }
+    sortColumn: { path: 'image', order: 'asc' }
   };
 
   componentDidMount() {
@@ -17,7 +17,7 @@ class Employee extends Component {
   };
 
   render() {
-    const { employees } = this.state;
+    const { employees, sortColumn } = this.state;
     return (
       <div>
        <EmployeesTable 
