@@ -7,7 +7,7 @@ function App() {
   return (
     <React.Fragment>
       <Header />
-      <main className='container text-center'>
+      <main className='container text-center mt-5'>
         <Employee />
       </main>
     </React.Fragment>
