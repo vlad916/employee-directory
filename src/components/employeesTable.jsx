@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 
 class EmployeesTable extends Component {
+
+
     render() { 
-        const { employees } = this.props;
+        const { employees, onSort, sortColumn } = this.props;
         return ( 
             <table className="table">
             <thead>

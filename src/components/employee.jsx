@@ -5,10 +5,15 @@ import { getEmployees } from "./employeesAPI/API";
 class Employee extends Component {
   state = {
     employees: [],
+    sortColumn: { path: 'Name', order: 'asc' }
   };
 
   componentDidMount() {
     this.setState({ employees: getEmployees() });
+  };
+
+  handleSort = (sortColumn) => {
+    this.setState ({ sortColumn });
   };
 
   render() {
@@ -17,6 +22,8 @@ class Employee extends Component {
       <div>
        <EmployeesTable 
        employees={employees}
+       onSort={this.handleSort}
+       sortColumn={sortColumn}
        />
       </div>
     );
