@@ -8,7 +8,7 @@ class Employee extends Component {
   state = {
     employees: [],
     search: "",
-    sortColumn: { path: 'name', order: 'asc' }
+    sortColumn: { path: "name", order: "asc" },
   };
 
   componentDidMount() {
@@ -20,10 +20,11 @@ class Employee extends Component {
   };
 
   handleSort = (sortColumn) => {
-    this.setState ({ sortColumn });
+    this.setState({ sortColumn });
   };
 
   render() {
+    
     const { length: count } = this.state.employees;
 
     const { employees, search, sortColumn } = this.state;
@@ -35,11 +36,11 @@ class Employee extends Component {
           .indexOf(search.toLocaleLowerCase()) !== -1
       );
     });
-    
-    const sorted = _.orderBy (
-        filteredEmployees,
-        [sortColumn.path],
-        [sortColumn.order]
+
+    const sorted = _.orderBy(
+      filteredEmployees,
+      [sortColumn.path],
+      [sortColumn.order]
     );
 
     return (
@@ -53,9 +54,9 @@ class Employee extends Component {
         <br />
         <p>Showing {count} employees in the directory...</p>
         <EmployeesTable
-          employees={filteredEmployees, sorted}
-           onSort={this.handleSort}
-           sortColumn={sortColumn}
+          employees={(filteredEmployees, sorted)}
+          onSort={this.handleSort}
+          sortColumn={sortColumn}
         />
       </div>
     );
