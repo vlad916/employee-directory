@@ -3,35 +3,33 @@
 This is an application that uses React.js to create an employee directory.
 
 ## Overview
-___
 
 When the page loads, the users will be able to straight away view the entire employee directory with it's employees information which includes the following ( image, name, phone #, email, DOB ).  Also with this application the user is able to search an employee with it's corresponding information and sort the employees by ascending or descending order. 
 
 
 ## Heroku Link
-___
 
 
 ## Technologies Used 
-___
 
 * React
 * NodeJs
  * Bootstrap
  * Heroku
- ___
+
+## Shows Ascending order
  
  <img src="images/ascending.png">
  
-___
+## Shows Descending order
  
 <img src="images/descending.png">
   
-___
+## Search by Name
   
 <img src="images/name.png">
    
-___
+## Search by letter
    
  <img src="images/letter.png">
 
