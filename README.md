@@ -20,18 +20,26 @@ When the page loads, the users will be able to straight away view the entire emp
 ## Shows Ascending order
  
  <img src="images/ascending.png">
+
+___
  
 ## Shows Descending order
  
 <img src="images/descending.png">
+
+___
   
 ## Search by Name
   
 <img src="images/name.png">
+
+___
    
 ## Search by letter
    
  <img src="images/letter.png">
+ 
+___
 
 ## Instructions on how to use the application
 ___
