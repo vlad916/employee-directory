@@ -8,7 +8,7 @@ class Employee extends Component {
   state = {
     employees: [],
     search: "",
-    sortColumn: { path: 'image', order: 'asc' }
+    sortColumn: { path: 'name', order: 'asc' }
   };
 
   componentDidMount() {
@@ -35,7 +35,7 @@ class Employee extends Component {
           .indexOf(search.toLocaleLowerCase()) !== -1
       );
     });
-
+    
     const sorted = _.orderBy (
         filteredEmployees,
         [sortColumn.path],

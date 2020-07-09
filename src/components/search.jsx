@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 
 const SearchEmployees = (props) => {
-  const { onChange } = props;
+  const { onChange, value } = props;
   return (
     <div>
       <input 
       type="text" 
-      onChange={onChange} />
+      onChange={onChange}
+      value={value} 
+      />
     </div>
   );
 };
