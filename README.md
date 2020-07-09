@@ -9,6 +9,7 @@ When the page loads, the users will be able to straight away view the entire emp
 
 ## Heroku Link
 
+* https://employee-directory916.herokuapp.com/
 
 ## Technologies Used 
 
