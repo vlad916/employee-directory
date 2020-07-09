@@ -1,6 +1,6 @@
 # Employee Directory
 
-This is an application that uses React.js to create and employee directory.
+This is an application that uses React.js to create an employee directory.
 
 ## Overview
 ___
