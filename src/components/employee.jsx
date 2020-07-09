@@ -1,22 +1,22 @@
 import React, { Component } from "react";
-import EmployeesTable from './employeesTable';
-import SearchEmployees from './search';
+import EmployeesTable from "./employeesTable";
+import SearchEmployees from "./search";
 import { getEmployees } from "./employeesAPI/API";
-import _ from 'lodash';
+import _ from "lodash";
 
 class Employee extends Component {
   state = {
     employees: [],
+    search: "",
     // sortColumn: { path: 'image', order: 'asc' }
   };
 
   componentDidMount() {
     this.setState({ employees: getEmployees() });
-  };
+  }
 
   handleUpdateSearch = (event) => {
-    
-
+    this.setState({ search: event.target.value.substr(0, 20) });
   };
 
   // handleSort = (sortColumn) => {
@@ -24,11 +24,18 @@ class Employee extends Component {
   // };
 
   render() {
+    const { length: count } = this.state.employees;
 
-    const { length: count } = this.state.employees;  
-    
-    // if ( count === 0 ) return <p>There are no Employees in the directory</p>
     const { employees, search } = this.state;
+
+    let filteredEmployees = employees.filter((employee) => {
+      return (
+        employee.name.first
+          .toLowerCase()
+          .indexOf(search.toLocaleLowerCase()) !== -1
+      );
+      // return employee.name.last.toLowerCase().indexOf(search.toLocaleLowerCase()) !== -1;
+    });
 
     // _.orderBy (
     //     [sortColumn.path],
@@ -38,18 +45,18 @@ class Employee extends Component {
     return (
       <div>
         <div>
-          <SearchEmployees 
-          value={search}
-          onChange={this.handleUpdateSearch.bind(this)}
+          <SearchEmployees
+            value={search}
+            onChange={this.handleUpdateSearch.bind(this)}
           />
         </div>
         <br />
-          <p>Showing { count } employees in the directory...</p>
-       <EmployeesTable 
-       employees={employees}
-      //  onSort={this.handleSort}
-      //  sortColumn={sortColumn}
-       />
+        <p>Showing {count} employees in the directory...</p>
+        <EmployeesTable
+          employees={filteredEmployees}
+          //  onSort={this.handleSort}
+          //  sortColumn={sortColumn}
+        />
       </div>
     );
   }

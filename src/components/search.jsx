@@ -1,11 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-const SearchEmployees = () => {
-    return ( 
-        <div>
-            <input type="text"/>
-        </div>
-     );
-}
- 
+const SearchEmployees = (props) => {
+  const { onChange } = props;
+  return (
+    <div>
+      <input 
+      type="text" 
+      onChange={onChange} />
+    </div>
+  );
+};
+
 export default SearchEmployees;
