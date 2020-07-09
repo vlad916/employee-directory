@@ -33,7 +33,7 @@ class Employee extends Component {
       return (
         employee.name.first
           .toLowerCase()
-          .indexOf(search.toLocaleLowerCase()) !== -1
+          .indexOf(search.toLowerCase()) !== -1
       );
     });
 
