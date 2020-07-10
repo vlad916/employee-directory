@@ -24,12 +24,10 @@ class Employee extends Component {
   };
 
   render() {
-    
-    const { length: count } = this.state.employees;
+   
+    const { search, sortColumn, employees: allEmployees } = this.state;
 
-    const { employees, search, sortColumn } = this.state;
-
-    let filteredEmployees = employees.filter((employee) => {
+    let filteredEmployees = allEmployees.filter((employee) => {
       return (
         employee.name.first
           .toLowerCase()
@@ -52,7 +50,7 @@ class Employee extends Component {
           />
         </div>
         <br />
-        <p>Showing {count} employees in the directory...</p>
+        <p>Showing {filteredEmployees.length} employees in the directory...</p>
         <EmployeesTable
           employees={(filteredEmployees, sorted)}
           onSort={this.handleSort}
